@@ -19,7 +19,7 @@ export function generateRefreshToken(email: string) {
 
 // Verify an access token
 export function verifyAccessToken(token: string) {
-  return jwt.verify(token, JWT.secret);
+  return jwt.verify(token, JWT.secret) as JwtPayload;
 }
 
 // Verify a refresh token

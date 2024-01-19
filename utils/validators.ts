@@ -1,3 +1,4 @@
+import { roles } from "../db/models/user";
 import { body } from "express-validator";
 
 export const registrationValidator = () => {
@@ -16,4 +17,8 @@ export const loginValidator = () => {
 
 export const refreshValidator = () => {
   return [body("refreshToken").notEmpty().withMessage("Invalid refresh token")];
+};
+
+export const changeRoleValidator = () => {
+  return [body("role").notEmpty().isIn(roles).withMessage("Invalid role")];
 };
