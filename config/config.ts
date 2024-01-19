@@ -11,3 +11,4 @@ export const JWT = {
   refreshExpiresIn: "7d", // 7 days
 };
 export const NODE_ENV = process.env.NODE_ENV || "development";
+export const BCRYPT_SALT = process.env.BCRYPT_SALT || "10";

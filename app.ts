@@ -5,6 +5,7 @@ import * as config from "./config/config";
 import onError from "./utils/errorHandler";
 import logger from "./utils/logger";
 import connectDatabase from "./db/db";
+import routes from "./routes";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 connectDatabase()
   .then(() => {
+    // register routes
+    app.use(routes);
+
     // Error handling middleware
     app.use(onError);
 
