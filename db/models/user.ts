@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-export const roles = ["ADMIN", "OPERATOR", "USER"];
+export const roles = ["USER", "OPERATOR", "ADMIN"];
 export const userSchema = new Schema({
   email: {
     type: String,

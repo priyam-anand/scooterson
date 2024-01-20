@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { authenticateToken } from "../middleware/authMiddleware";
+import { authenticateToken } from "../middleware/auth";
 import { changeRoleValidator } from "../utils/validators";
 import { validationResult } from "express-validator";
 import { changeRole } from "../services/user";
