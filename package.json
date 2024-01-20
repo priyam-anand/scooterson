@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "gen:cert": "bash ./gen_cert.sh",
     "dev": "bash ./gen_cert.sh && nodemon app.ts",
-    "build": "bash ./gen_cert.sh && tsc",
+    "build": "tsc",
+    "build:local": "bash ./gen_cert.sh && tsc",
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

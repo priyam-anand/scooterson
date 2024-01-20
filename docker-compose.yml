@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: scooterson-assignment
+    container_name: scooterson_assignment
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      MONGODB_URI: "mongodb://mongo:27017/db"
+      JWT_SECRET: ${JWT_SECRET:-secret_key}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-secret_key}
+      BCRYPT_SALT: ${BCRYPT_SALT:-secret_key}
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
